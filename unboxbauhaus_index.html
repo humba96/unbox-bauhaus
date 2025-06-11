@@ -1,0 +1,88 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>#UnboxBauhaus – Teaser Exhibition</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <style>
+    body {
+      background-color: #f5f5dc;
+      font-family: 'Helvetica Neue', sans-serif;
+    }
+    .bauhaus-font {
+      font-family: 'Bauhaus 93', 'Arial Black', sans-serif;
+    }
+    .countdown {
+      font-size: 2rem;
+    }
+  </style>
+</head>
+<body class="text-black">
+  <!-- Hero Section -->
+  <section class="h-screen flex flex-col items-center justify-center text-center px-4">
+    <h1 class="bauhaus-font text-4xl md:text-6xl mb-4">#UnboxBauhaus</h1>
+    <p class="text-lg md:text-xl mb-2">Something iconic is coming.</p>
+    <p class="text-xl font-semibold mb-6">Opens July 11</p>
+    <div id="countdown" class="countdown font-mono text-2xl"></div>
+    <a href="#timeline" class="mt-6 text-blue-600 hover:underline">→ Explore the Clues</a>
+  </section>
+
+  <!-- Timeline / Poster Series -->
+  <section id="timeline" class="bg-white py-12 px-6">
+    <div class="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+      <div>
+        <img src="poster1.png" alt="Poster 1 - Blank Crate" class="w-full mb-4">
+        <p class="bauhaus-font">Stage 1: Mystery</p>
+      </div>
+      <div>
+        <img src="poster2.png" alt="Poster 2 - Abstract Furniture" class="w-full mb-4">
+        <p class="bauhaus-font">Stage 2: Abstraction</p>
+      </div>
+      <div>
+        <img src="poster3.png" alt="Poster 3 - Reveal" class="w-full mb-4">
+        <p class="bauhaus-font">Stage 3: Reveal</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Event Info -->
+  <section class="bg-yellow-100 py-10 px-6 text-center">
+    <h2 class="bauhaus-font text-3xl mb-4">Bauhaus Furniture Teaser Exhibition</h2>
+    <p class="text-xl">July 11, 2025 – Campus Gallery</p>
+    <p class="mt-2 text-lg">#UnboxBauhaus</p>
+  </section>
+
+  <!-- Footer -->
+  <footer class="text-center py-6 text-sm bg-gray-100">
+    <p>A teaser for the April 2025 Bauhaus Exhibition.</p>
+    <p>Organized by the Bauhaus Advertising Group</p>
+  </footer>
+
+  <script>
+    const countdown = document.getElementById('countdown');
+    const targetDate = new Date('2025-07-11T00:00:00');
+
+    function updateCountdown() {
+      const now = new Date();
+      const diff = targetDate - now;
+
+      if (diff <= 0) {
+        countdown.innerHTML = "It’s time to #UnboxBauhaus!";
+        return;
+      }
+
+      const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+      const minutes = Math.floor((diff / (1000 * 60)) % 60);
+      const seconds = Math.floor((diff / 1000) % 60);
+
+      countdown.innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s`;
+    }
+
+    setInterval(updateCountdown, 1000);
+    updateCountdown();
+  </script>
+</body>
+</html>
